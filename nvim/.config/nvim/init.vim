@@ -43,12 +43,13 @@ call plug#begin("~/.config/nvim/plugged/")
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+Plug 'w0rp/ale' " analizador estático de código
+
+
 
 " vim-plug plugins end
 call plug#end()
-
-
-
 
 
 
@@ -68,10 +69,15 @@ let g:airline#extensions#tabline#enable = 1 " Mostrar buffers abiertos(como pest
 " let g:airline_powerline_font = 1 " requiere powerline
 set noshowmode " ocultar el modo actual, que ya aparece en la barra
 
+" indentLine
+let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
+let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 
-
-
-
+" ale analizador estático
+" Mostrar mejores mensajes de error
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 
 
