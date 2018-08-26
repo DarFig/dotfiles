@@ -1,3 +1,5 @@
 {
-    "workbench.colorTheme": "Dracula"
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "file-icons",
+    "window.zoomLevel": 0
 }
