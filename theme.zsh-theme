@@ -1,6 +1,10 @@
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
 # agnoster customized
+#  - add \n in the prompt_end
+#  - delete call to prompt_context
+#  - changed the order of calls
+#
 #
 #
 #
@@ -11,8 +15,8 @@
 typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
     prompt_status
     prompt_virtualenv
-    prompt_dir
     prompt_git
+    prompt_dir
     prompt_end
 )
 
