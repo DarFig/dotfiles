@@ -6,7 +6,7 @@
 #
 #
 #
-# v.2019.02.05
+# v.2019.02.23
 # ***********************
 
 
@@ -40,6 +40,7 @@ then
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     cp ./theme.zsh-theme ~/.oh-my-zsh/themes/theme.zsh-theme
+    nano ~/.zshrc
   fi
   which pacman >/dev/null 2>&1
   if [ $? -eq 0 ]
@@ -49,9 +50,13 @@ then
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     cp ./theme.zsh-theme ~/.oh-my-zsh/themes/theme.zsh-theme
+    nano ~/.zshrc
   else
     echo "nada"
   fi
+elif [ $1 = 'vscodeConfig' ] 
+then
+  ./vscode/setExtensions.sh
 else
   echo 'nada'
 fi
