@@ -8,7 +8,14 @@
 #
 # v.2019.02.23
 # ***********************
-
+if [ "$#" -lt 1 ]
+then
+  echo "Usage: "
+  echo "      $0 spacevim "
+  echo "      $0 zsh"
+  echo "      $0 vscodeConfig"
+  exit 85
+fi
 
 
 if [ $1 = 'spacevim' ]
