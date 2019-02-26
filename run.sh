@@ -6,7 +6,7 @@
 #
 #
 #
-# v.2019.02.23
+# v.2019.02.26
 # ***********************
 if [ "$#" -lt 1 ]
 then
@@ -46,7 +46,7 @@ then
     SHELL=$(which zsh)
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    cp ./theme.zsh-theme ~/.oh-my-zsh/themes/theme.zsh-theme
+    cp ./theme.zsh-theme ~/.oh-my-zsh/custom/themes/theme.zsh-theme
     nano ~/.zshrc
   fi
   which pacman >/dev/null 2>&1
@@ -56,7 +56,7 @@ then
     SHELL=$(which zsh)
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    cp ./theme.zsh-theme ~/.oh-my-zsh/themes/theme.zsh-theme
+    cp ./theme.zsh-theme ~/.oh-my-zsh/custom/themes/theme.zsh-theme
     nano ~/.zshrc
   else
     echo "nada"
