@@ -6,3 +6,4 @@ code --install-extension ms-python.python
 code --install-extension ms-vscode.cpptools
 code --install-extension naumovs.color-highlight
 code --install-extension tinkertrain.theme-panda
+code --install-extension rust-lang.rust
