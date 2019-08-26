@@ -47,4 +47,5 @@ name = "denite"
 [[layers]]
 name = "lang#markdown"
 
-
+[[layers]]
+name = "lang#rust"
