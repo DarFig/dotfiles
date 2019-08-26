@@ -5,5 +5,7 @@ code --install-extension MS-CEINTL.vscode-language-pack-es
 code --install-extension ms-python.python
 code --install-extension ms-vscode.cpptools
 code --install-extension naumovs.color-highlight
-code --install-extension tinkertrain.theme-panda
+code --install-extension PKief.material-icon-theme
 code --install-extension rust-lang.rust
+code --install-extension tinkertrain.theme-panda
+code --install-extension VisualStudioExptTeam.vscodeintellicode
