@@ -128,6 +128,12 @@ prompt_virtualenv() {
     prompt_segment $color $PRIMARY_FG
     print -Pn " $(basename $VIRTUAL_ENV) "
   fi
+
+  if [[ -n $CONDA_DEFAULT_ENV ]]; then
+    color=cyan
+    prompt_segment $color $PRIMARY_FG
+    print -Pn " $(basename $CONDA_DEFAULT_ENV) "
+  fi
 }
 
 ## Main prompt
