@@ -47,7 +47,7 @@ then
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     cp ./theme.zsh-theme ~/.oh-my-zsh/custom/themes/theme.zsh-theme
-    nano ~/.zshrc
+    nano ~/.zshrc # hay que poner theme en el zsh_theme
   fi
   which pacman >/dev/null 2>&1
   if [ $? -eq 0 ]
@@ -57,7 +57,7 @@ then
     chsh -s $(which zsh)
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     cp ./theme.zsh-theme ~/.oh-my-zsh/custom/themes/theme.zsh-theme
-    nano ~/.zshrc
+    nano ~/.zshrc # hay que poner theme en el zsh_theme
   else
     echo "nada"
   fi
