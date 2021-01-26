@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 import socket
-
+#import subprocess
+#import re
 
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
@@ -179,15 +180,17 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 #widget.CurrentLayout(),
+                
                 widget.CurrentLayout(foreground = colors[2],background = colors[4],padding = 5),
+                widget.NetGraph(interface = "auto",padding = 5),
                 widget.Volume(foreground = colors[2], background = colors[5],padding = 5),
                 widget.Systray(),
                 widget.ThermalSensor(foreground = colors[2],background = colors[5],threshold = 90,padding = 5),               
                 
                 widget.Clock(foreground = colors[2],background = colors[5],format='%m-%d %a %I:%M %p'),
 
-                widget.NetGraph(interface = "auto"),
-                       #foreground = colors[2],background = colors[4],padding = 5),
+                
+                       #foreground = colors[2],background = colors[4]),
                 widget.QuickExit(),
             ],
             24,
@@ -209,7 +212,20 @@ def window_to_next_group(qtile):
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
+#def is_running(process):
+#    s = subprocess.Popen(["ps", "axw"], stdout=subprocess.PIPE)
+#    for x in s.stdout:
+#        if re.search(process, x):
+#            return True
+#    return False
 
+#def execute_once(process):
+#    if not is_running(process):
+#        return subprocess.Popen(process.split())
+
+#@hook.subscribe.startup
+#def startup():
+#execute_once("compton --config ~/.config/compton/compton.conf")
 
 # Drag floating layouts.
 mouse = [
