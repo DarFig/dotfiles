@@ -73,15 +73,22 @@ function qtile_install
   if [ $? -eq 0 ]
   then
     sudo pacman -S qtile
-  else
-    echo 'nada'
   fi
+  mkdir tmp
+  cd tmp
+  git clone git://github.com/qtile/qtile.git
+  cd qtile
+  sudo pip install .
+  cd ../..
+  rm -rf tmp
+  sudo pip install psutil
+  #
 }
 
 function qtile_config 
 {
   mkdir -p ~/.config/qtile
-  cp -r ./qtile ~/.config
+  cp -r ./qtile/* ~/.config/qtile
 }
 
 function main
