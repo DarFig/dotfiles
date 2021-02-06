@@ -61,6 +61,29 @@ function zsh_config
   sed -i 's/robbyrussell/theme/g' ~/.zshrc
 }
 
+function qtile_install
+{
+  echo 'qtile'
+  which apt >/dev/null 2>&1
+  if [ $? -eq 0 ]
+  then
+    sudo apt-get install qtile
+  fi
+  which pacman >/dev/null 2>&1
+  if [ $? -eq 0 ]
+  then
+    sudo pacman -S qtile
+  else
+    echo 'nada'
+  fi
+}
+
+function qtile_config 
+{
+  mkdir -p ~/.config/qtile
+  cp -r ./qtile ~/.config
+}
+
 function main
 {
   if [ $1 = 'spacevim' ]
@@ -71,7 +94,10 @@ function main
   then
     zsh_install
     zsh_config
-    
+  elif [ $1 = 'qtile' ]
+  then
+    qtile_install
+    qtile_config
   elif [ $1 = 'vscodeConfig' ] 
   then
     ./vscode/setExtensions.sh
