@@ -196,7 +196,7 @@ screens = [
             24,
         ),
         
-        #wallpaper="~/5cmseg.jpg",
+        wallpaper="~/5cmseg.jpg",
     ),
 ]
 
