@@ -68,11 +68,15 @@ function qtile_install
   if [ $? -eq 0 ]
   then
     sudo apt-get install qtile
+    #add rofi
+    sudo apt install rofi
   fi
   which pacman >/dev/null 2>&1
   if [ $? -eq 0 ]
   then
     sudo pacman -S qtile
+    #add rofi
+    sudo pacman -S rofi
   fi
   mkdir tmp
   cd tmp
