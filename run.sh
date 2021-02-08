@@ -113,6 +113,18 @@ function main
   then
     ./vscode/setExtensions.sh
   else
+  elif [ $1 = 'hackfont' ] 
+  then
+    mkdir tmp
+    cd tmp
+    curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+    unzip Hack.zip
+    rm Hack.zip
+    mkdir -p ~/.local/share/fonts
+    cp *.ttf ~/.local/share/fonts
+    cd ..
+    rm tmp
+  else
     echo 'nada'
   fi
 }
@@ -124,6 +136,7 @@ then
   echo "      $0 zsh"
   echo "      $0 vscodeConfig"
   echo "      $0 qtile"
+  echo "      $0 hackfont"
   exit 85
 else
   main $1
