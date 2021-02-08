@@ -123,7 +123,7 @@ function main
     mkdir -p ~/.local/share/fonts
     cp *.ttf ~/.local/share/fonts
     cd ..
-    rm tmp
+    rm -rf ./tmp
   else
     echo 'nada'
   fi
