@@ -112,12 +112,12 @@ function main
   elif [ $1 = 'vscodeConfig' ] 
   then
     ./vscode/setExtensions.sh
-  else
   elif [ $1 = 'hackfont' ] 
   then
+    sudo pacman -S unzip
     mkdir tmp
     cd tmp
-    curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
     unzip Hack.zip
     rm Hack.zip
     mkdir -p ~/.local/share/fonts
