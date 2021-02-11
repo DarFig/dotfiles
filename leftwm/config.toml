@@ -1,11 +1,24 @@
+####################################################
+# Personal leftwm configuration
+# - many keys have been changed 
+# - "icons" needs nerd fonts (example: hack nerd font)
+#
+###################################################
+# Mod1 == alt
+# Mod2 == ctrl / sometimes Control==ctr
+#
+# Mod4 == cmd/windows key
+
+
 modkey = "Mod4"
+
 workspaces = []
 tags = ["", "", "", "", "", "", "", "", "﫷"]
 
 [[keybind]]
 command = "Execute"
 value = "rofi -show drun"
-modifier = ["Mod1"]
+modifier = ["modkey"]
 key = "space"
 
 [[keybind]]
@@ -24,16 +37,18 @@ command = "SoftReload"
 modifier = ["modkey", "Shift"]
 key = "r"
 
+# kill leftwm, hardreload :|
 [[keybind]]
 command = "Execute"
 value = "pkill leftwm"
 modifier = ["modkey", "Shift"]
 key = "x"
 
+# lock the screen
 [[keybind]]
 command = "Execute"
 value = "slock"
-modifier = ["modkey", "Control"]
+modifier = ["modkey", "Mod2"]
 key = "l"
 
 [[keybind]]
@@ -41,6 +56,7 @@ command = "MoveToLastWorkspace"
 modifier = ["modkey", "Shift"]
 key = "w"
 
+# switch desktops
 [[keybind]]
 command = "SwapTags"
 modifier = ["modkey"]
@@ -68,12 +84,12 @@ key = "Down"
 
 [[keybind]]
 command = "NextLayout"
-modifier = ["modkey", "Control"]
+modifier = ["modkey", "Mod2"]
 key = "Up"
 
 [[keybind]]
 command = "PreviousLayout"
-modifier = ["modkey", "Control"]
+modifier = ["modkey", "Mod2"]
 key = "Down"
 
 [[keybind]]
@@ -140,7 +156,8 @@ value = "9"
 modifier = ["modkey"]
 key = "9"
 
-[[keybind]]
+
+[[keybind]]  
 command = "MoveToTag"
 value = "1"
 modifier = ["modkey", "Shift"]
@@ -163,6 +180,7 @@ command = "MoveToTag"
 value = "4"
 modifier = ["modkey", "Shift"]
 key = "4"
+
 
 [[keybind]]
 command = "MoveToTag"

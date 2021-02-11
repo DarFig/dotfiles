@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# el yakuke a veces se inicia y es molesto
+pkill yakuke
+
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 # Down the last running theme
