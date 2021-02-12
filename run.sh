@@ -159,7 +159,7 @@ function environment_config
   cd leftwm
   cp -r ./* ~/.conf/leftwm
   cd ~/.conf/leftwm/themes
-  ln -s darfig-leftwm current
+  ln -s darfig-leftwm/theme current
 }
 
 function main
