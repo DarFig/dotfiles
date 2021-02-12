@@ -5,10 +5,12 @@
 # install dotfiles
 #
 #
+# v.2021.02.12 leftwm v0.2.5
 # v.2021.02.06 refactor a funciones
 # v.2019.02.26 versión inicial
 # ***********************
-
+HACK_V="v2.1.0"
+LEFTWM_V="0.2.5"
 
 
 function spacevim_install 
@@ -84,7 +86,7 @@ function qtile_install
   cd qtile
   sudo pip install .
   cd ../..
-  rm -rf tmp
+  rm -rf ./tmp
   sudo pip install psutil
   #
 }
@@ -93,6 +95,71 @@ function qtile_config
 {
   mkdir -p ~/.config/qtile
   cp -r ./qtile/* ~/.config/qtile
+}
+
+function add_fonts
+{
+  # hack nerd-fonts
+  sudo pacman -S unzip
+  mkdir tmp
+  cd tmp
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/"$HACK_V"/Hack.zip
+  unzip Hack.zip
+  rm Hack.zip
+  mkdir -p ~/.local/share/fonts
+  cp *.ttf ~/.local/share/fonts
+  cd ..
+  rm -rf ./tmp
+}
+
+function install_environment_dependencies 
+{
+ sudo pacman -S gcc
+ sudo pacman -S rust
+ sudo pacman -S alacritty feh polybar picom conky rofi
+}
+
+function environment_install 
+{
+  echo "environment" 
+  mkdir tmp
+  ruta=$(pwd)
+  cd tmp
+  wget https://github.com/leftwm/leftwm/archive/"$LEFTWM_V".tar.gz
+  tar -zxf ./"$LEFTWM_V".tar.gz
+  rm ./"$LEFTWM_V".tar.gz
+  
+  cd leftwm-"$LEFTWM_V"
+  
+  mkdir -p ~/leftwm
+  cp -r ./* ~/leftwm/
+
+  cd ~/leftwm
+ # cargo install leftwm
+  cargo build --release
+  sudo cp leftwm.desktop /usr/share/xsessions
+ 
+  cd /usr/bin
+  sudo ln -s ~/leftwm/target/debug/leftwm
+  sudo ln -s ~/leftwm/target/debug/leftwm-worker
+  sudo ln -s ~/leftwm/target/debug/leftwm-state
+  echo "********** $ruta"
+  cd "$ruta"
+  rm -rf ./tmp
+}
+
+function environment_config
+{
+  add_fonts
+  mkdir -p ~/.conf/alacritty
+  mkdir -p ~/.conf/picom
+  mkdir -p ~/.conf/leftwm
+  cp alacritty.yml ~/.conf/alacritty
+  cp picom.conf ~/.conf/picom
+  cd leftwm
+  cp -r ./* ~/.conf/leftwm
+  cd ~/.conf/leftwm/themes
+  ln -s darfig-leftwm current
 }
 
 function main
@@ -112,18 +179,11 @@ function main
   elif [ $1 = 'vscodeConfig' ] 
   then
     ./vscode/setExtensions.sh
-  elif [ $1 = 'hackfont' ] 
+  elif [ $1 = 'environment' ]
   then
-    sudo pacman -S unzip
-    mkdir tmp
-    cd tmp
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-    unzip Hack.zip
-    rm Hack.zip
-    mkdir -p ~/.local/share/fonts
-    cp *.ttf ~/.local/share/fonts
-    cd ..
-    rm -rf ./tmp
+    install_environment_dependencies
+    environment_install
+    environment_config
   else
     echo 'nada'
   fi
@@ -136,7 +196,7 @@ then
   echo "      $0 zsh"
   echo "      $0 vscodeConfig"
   echo "      $0 qtile"
-  echo "      $0 hackfont"
+  echo "      $0 environment"
   exit 85
 else
   main $1
