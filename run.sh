@@ -151,14 +151,14 @@ function environment_install
 function environment_config
 {
   add_fonts
-  mkdir -p ~/.conf/alacritty
-  mkdir -p ~/.conf/picom
-  mkdir -p ~/.conf/leftwm
-  cp alacritty.yml ~/.conf/alacritty
-  cp picom.conf ~/.conf/picom
+  mkdir -p ~/.config/alacritty
+  mkdir -p ~/.config/picom
+  mkdir -p ~/.config/leftwm
+  cp alacritty.yml ~/.config/alacritty
+  cp picom.conf ~/.config/picom
   cd leftwm
-  cp -r ./* ~/.conf/leftwm
-  cd ~/.conf/leftwm/themes
+  cp -r ./* ~/.config/leftwm
+  cd ~/.config/leftwm/themes
   ln -s darfig-leftwm/theme current
 }
 
