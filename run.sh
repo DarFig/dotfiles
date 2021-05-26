@@ -162,6 +162,16 @@ function environment_config
   ln -s darfig-leftwm/theme current
 }
 
+function tiny_environment
+{
+  sudo pacman -S alacritty
+  add_fonts
+  mkdir -p ~/.config/alacritty
+  cp alacritty.yml ~/.config/alacritty
+
+}
+
+
 function main
 {
   if [ $1 = 'spacevim' ]
@@ -179,11 +189,14 @@ function main
   elif [ $1 = 'vscodeConfig' ] 
   then
     ./vscode/setExtensions.sh
-  elif [ $1 = 'environment' ]
+  elif [ $1 = 'leftwm' ]
   then
     install_environment_dependencies
     environment_install
     environment_config
+  elif [ $1 = 'tiny' ]
+  then
+    tiny_environment
   else
     echo 'nada'
   fi
@@ -196,7 +209,8 @@ then
   echo "      $0 zsh"
   echo "      $0 vscodeConfig"
   echo "      $0 qtile"
-  echo "      $0 environment"
+  echo "      $0 leftwm"
+  echo "      $0 tiny"
   exit 85
 else
   main $1
