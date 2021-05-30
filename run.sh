@@ -10,7 +10,7 @@
 # v.2019.02.26 versión inicial
 # ***********************
 HACK_V="v2.1.0"
-LEFTWM_V="0.2.5"
+LEFTWM_V="0.2.7"
 
 
 function spacevim_install 
