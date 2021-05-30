@@ -4,7 +4,7 @@
 # run
 # install dotfiles
 #
-#
+# v.2021.05.30 leftwm v0.2.7
 # v.2021.02.12 leftwm v0.2.5
 # v.2021.02.06 refactor a funciones
 # v.2019.02.26 versión inicial
@@ -116,7 +116,7 @@ function install_environment_dependencies
 {
  sudo pacman -S gcc
  sudo pacman -S rust
- sudo pacman -S alacritty feh polybar picom conky rofi
+ sudo pacman -S alacritty feh nitrogen polybar picom conky rofi
 }
 
 function environment_install 
