@@ -33,8 +33,8 @@ bindsym $mod+Return exec alacritty
 #bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run -opacity "80" -columns 2
-
+#bindsym $mod+d exec --no-startup-id rofi -show run -opacity "80" -columns 2
+bindsym $mod+d exec --no-startup-id rofi -show drun -opacity "80" -show-icons
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -372,16 +372,16 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+gaps inner 10
+gaps outer 10
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
+#gaps inner all set 10
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+#smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
