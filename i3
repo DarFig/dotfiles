@@ -72,7 +72,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+#bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
@@ -323,7 +323,7 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command i3bar
+	i3bar_command i3bar --transparency
   height 35
 	status_command i3status -c "~/.config/i3status/i3status.conf"
 	position top
@@ -338,13 +338,11 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #513B71
-#222D31
+        background #513B7144
         statusline #50fa7b
-#F9FAF9
         separator #bd93f9 
-#454947
-## 16a085
+
+
 #                      border  backgr. text
         focused_workspace  #bd93f9 #6272a4 #50fa7b
         active_workspace   #595B5B #353836 #FDF6E3
