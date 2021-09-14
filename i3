@@ -340,13 +340,13 @@ bar {
     colors {
         background #513B71
 #222D31
-        statusline #ff79c6
+        statusline #50fa7b
 #F9FAF9
         separator #bd93f9 
 #454947
 ## 16a085
 #                      border  backgr. text
-        focused_workspace  #bd93f9 #6272a4 #bd93f9
+        focused_workspace  #bd93f9 #6272a4 #50fa7b
         active_workspace   #595B5B #353836 #FDF6E3
         inactive_workspace #595B5B #513B71 #FDF6E3
         binding_mode       #16a085 #2C2C2C #F9FAF9
